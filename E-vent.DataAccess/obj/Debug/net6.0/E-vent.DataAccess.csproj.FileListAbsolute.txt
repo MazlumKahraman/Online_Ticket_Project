@@ -1,0 +1,12 @@
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\bin\Debug\net6.0\E-vent.DataAccess.deps.json
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\bin\Debug\net6.0\E-vent.DataAccess.dll
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\bin\Debug\net6.0\E-vent.DataAccess.pdb
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\obj\Debug\net6.0\E-vent.DataAccess.csproj.AssemblyReference.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\obj\Debug\net6.0\E-vent.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\obj\Debug\net6.0\E-vent.DataAccess.AssemblyInfoInputs.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\obj\Debug\net6.0\E-vent.DataAccess.AssemblyInfo.cs
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\obj\Debug\net6.0\E-vent.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\obj\Debug\net6.0\E-vent.DataAccess.dll
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\obj\Debug\net6.0\refint\E-vent.DataAccess.dll
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\obj\Debug\net6.0\E-vent.DataAccess.pdb
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.DataAccess\obj\Debug\net6.0\ref\E-vent.DataAccess.dll

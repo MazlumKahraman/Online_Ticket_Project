@@ -1,0 +1,14 @@
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\bin\Debug\net6.0\E-vent.Entities.deps.json
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\bin\Debug\net6.0\E-vent.Entities.runtimeconfig.json
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\bin\Debug\net6.0\E-vent.Entities.dll
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\bin\Debug\net6.0\E-vent.Entities.pdb
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\obj\Debug\net6.0\E-vent.Entities.csproj.AssemblyReference.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\obj\Debug\net6.0\E-vent.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\obj\Debug\net6.0\E-vent.Entities.AssemblyInfoInputs.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\obj\Debug\net6.0\E-vent.Entities.AssemblyInfo.cs
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\obj\Debug\net6.0\E-vent.Entities.csproj.CoreCompileInputs.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\obj\Debug\net6.0\E-vent.Entities.dll
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\obj\Debug\net6.0\refint\E-vent.Entities.dll
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\obj\Debug\net6.0\E-vent.Entities.pdb
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\obj\Debug\net6.0\E-vent.Entities.genruntimeconfig.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Entities\obj\Debug\net6.0\ref\E-vent.Entities.dll
