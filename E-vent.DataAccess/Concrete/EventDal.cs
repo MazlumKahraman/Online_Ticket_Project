@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace E_vent.DataAccess.Concrete
 {
-    public class EventDal : EntityRepositoryBase<Event,EventOnlineTicketContext>, IEventDal
+    public class EventDal : EntityRepositoryBase<Event, EventOnlineTicketContext>, IEventDal
     {
     }
 }

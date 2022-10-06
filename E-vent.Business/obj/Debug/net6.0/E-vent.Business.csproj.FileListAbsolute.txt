@@ -10,3 +10,8 @@ C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Busines
 C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Business\obj\Debug\net6.0\refint\E-vent.Business.dll
 C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Business\obj\Debug\net6.0\E-vent.Business.pdb
 C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Business\obj\Debug\net6.0\ref\E-vent.Business.dll
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Business\bin\Debug\net6.0\E-vent.DataAccess.dll
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Business\bin\Debug\net6.0\E-vent.Entities.dll
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Business\bin\Debug\net6.0\E-vent.DataAccess.pdb
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Business\bin\Debug\net6.0\E-vent.Entities.pdb
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.Business\obj\Debug\net6.0\E-vent.Business.csproj.CopyComplete

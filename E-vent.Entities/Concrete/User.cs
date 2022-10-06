@@ -9,6 +9,7 @@ namespace E_vent.Entities.Concrete
         public User()
         {
             EventUsers = new HashSet<EventUser>();
+            Events = new HashSet<Event>();
             Tickets = new HashSet<Ticket>();
         }
 
@@ -21,6 +22,7 @@ namespace E_vent.Entities.Concrete
         public bool IsActive { get; set; }
 
         public virtual ICollection<EventUser> EventUsers { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using E_vent.Entities.Concrete;
+﻿using E_vent.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace E_vent.DataAccess.Concrete
 {
@@ -23,6 +20,7 @@ namespace E_vent.DataAccess.Concrete
         public virtual DbSet<Event> Events { get; set; } = null!;
         public virtual DbSet<EventTicket> EventTickets { get; set; } = null!;
         public virtual DbSet<EventUser> EventUsers { get; set; } = null!;
+        public virtual DbSet<Status> Statuses { get; set; } = null!;
         public virtual DbSet<Ticket> Tickets { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
 
@@ -72,6 +70,8 @@ namespace E_vent.DataAccess.Concrete
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
 
+                entity.Property(e => e.StatusId).HasDefaultValueSql("((1))");
+
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Events)
                     .HasForeignKey(d => d.CategoryId)
@@ -83,6 +83,18 @@ namespace E_vent.DataAccess.Concrete
                     .HasForeignKey(d => d.CityId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Events_Cities");
+
+                entity.HasOne(d => d.Status)
+                    .WithMany(p => p.Events)
+                    .HasForeignKey(d => d.StatusId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Events_Statuses");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Events)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Events_Users");
             });
 
             modelBuilder.Entity<EventTicket>(entity =>
@@ -115,6 +127,11 @@ namespace E_vent.DataAccess.Concrete
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_EventUsers_Users");
+            });
+
+            modelBuilder.Entity<Status>(entity =>
+            {
+                entity.Property(e => e.StatusName).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Ticket>(entity =>

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "SZS6GLK7KcUAux4ZtCUfsHkZlwJD1dOT0c+pKWhmiIBUMBNbH2g+Uo6+hUkUqq/TdnyxKEwGbpsEVk1t/h8Kkg==",
+  "dgSpecHash": "oEiCBlwzvxE5IV9pIO9qewADBD73YeD43kB0CABHbLhxk9w3jBrfzTGgJqvWeEjOvRosLFadq20M2AcyueklCw==",
   "success": true,
   "projectFilePath": "C:\\Users\\cyber\\OneDrive\\Masaüstü\\Entertech\\E-vent_Online_Ticket\\E-vent.Business\\E-vent.Business.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\cyber\\.nuget\\packages\\fluentvalidation\\11.2.2\\fluentvalidation.11.2.2.nupkg.sha512",
     "C:\\Users\\cyber\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\cyber\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\cyber\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

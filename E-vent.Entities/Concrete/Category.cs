@@ -11,7 +11,7 @@ namespace E_vent.Entities.Concrete
             Events = new HashSet<Event>();
         }
 
-        public int Id { get; }
+        public int Id { get; set; }
         public string Name { get; set; } = null!;
         public bool IsActive { get; set; }
 

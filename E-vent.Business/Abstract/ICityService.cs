@@ -1,0 +1,14 @@
+﻿using E_vent.Entities.Concrete;
+using System.Linq.Expressions;
+
+namespace E_vent.Business.Abstract
+{
+    public interface ICityService
+    {
+        List<City> GetAll(Expression<Func<City, bool>> filter = null);
+        City Get(Expression<Func<City, bool>> filter);
+        void Add(City city);
+        void Update(City city);
+        void Delete(City city);
+    }
+}

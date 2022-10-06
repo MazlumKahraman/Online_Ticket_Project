@@ -12,7 +12,6 @@ namespace E_vent.Entities.Concrete
         }
 
         public int Id { get; set; }
-        public string WebAdress { get; set; } = null!;
         public int Quato { get; set; }
         public int EventId { get; set; }
         public int EntegratorId { get; set; }
