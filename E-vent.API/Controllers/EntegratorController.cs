@@ -17,44 +17,44 @@ namespace E_vent.API.Controllers
             _entegratorService = new EntegratorManager(new EntegratorDal());
         }
 
-        [HttpGet("GetAllEntegrators")]
-        public List<Entegrator> GetAllEntegrators()
+        [HttpGet("GetAll")]
+        public List<Entegrator> GetAll()
         {
             return _entegratorService.GetAll(e => e.IsActive);
         }
 
-        [HttpGet("GetEntegrator")]
-        public Entegrator GetEntegrator(int entegratorId)
+        [HttpGet("Get")]
+        public Entegrator Get(int entegratorId)
         {
             return _entegratorService.Get(e => e.Id == entegratorId && e.IsActive);
         }
 
-        [HttpPost("AddEntegrator")]
-        public ActionResult AddEntegrator([FromBody] Entegrator entegrator)
+        [HttpPost("Add")]
+        public ActionResult Add([FromBody] Entegrator entegrator)
         {
             if (_entegratorService.Get(e => e.DomainName.Equals(entegrator.DomainName) && e.IsActive) is null)
             {
                 _entegratorService.Add(entegrator);
-                return Ok();
+                return Ok(entegrator);
             }
             return BadRequest("Entegrator already exist, please try again!");
         }
 
-        [HttpPut("DeleteEntegrator")]
-        public ActionResult DeleteEntegrator(int entegratorId)
+        [HttpPut("Delete")]
+        public ActionResult Delete(int entegratorId)
         {
             var entegrator = _entegratorService.Get(e => e.Id == entegratorId && e.IsActive);
             if (entegrator is not null)
             {
                 entegrator.IsActive = false;
                 _entegratorService.Update(entegrator);
-                return Ok(entegrator);
+                return NoContent();
             }
             return BadRequest("City not found");
         }
 
-        [HttpPut("UpdateEntegrator")]
-        public ActionResult UpdateEntegrator(Entegrator entegrator)
+        [HttpPut("Update")]
+        public ActionResult Update(Entegrator entegrator)
         {
             var updateEntegrator = _entegratorService.Get(e => e.Id == entegrator.Id && e.IsActive);
             if (updateEntegrator is not null)
@@ -63,7 +63,7 @@ namespace E_vent.API.Controllers
                 if (updateEntegrator is null)
                 {
                     _entegratorService.Update(entegrator);
-                    return Ok();
+                    return Ok(entegrator);
                 }
                 return BadRequest("domain name already exist!");
             }

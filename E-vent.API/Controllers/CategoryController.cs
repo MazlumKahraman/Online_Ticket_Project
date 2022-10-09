@@ -16,44 +16,44 @@ namespace E_vent.API.Controllers
             _categoryService = new CategoryManager(new CategoryDal());
         }
 
-        [HttpGet("GetAllCategories")]
-        public List<Category> GetAllCategories()
+        [HttpGet("GetAll")]
+        public List<Category> GetAll()
         {
             return _categoryService.GetAll(c => c.IsActive);
         }
 
-        [HttpGet("GetCategory")]
-        public Category GetCategory(int categoryId)
+        [HttpGet("Get")]
+        public Category Get(int categoryId)
         {
             return _categoryService.Get(c => c.Id == categoryId && c.IsActive);
         }
 
-        [HttpPost("AddCategory")]
-        public ActionResult AddCategory([FromBody] Category category)
+        [HttpPost("Add")]
+        public ActionResult Add([FromBody] Category category)
         {
             if (_categoryService.Get(c => c.Name.Equals(category.Name) && c.IsActive) is null)
             {
                 _categoryService.Add(category);
-                return Ok();
+                return Ok(category);
             }
             return BadRequest("Category name already exist, please enter another category name");
         }
 
-        [HttpPut("DeleteCategory")]
-        public ActionResult DeleteCategory(int categoryId)
+        [HttpPut("Delete")]
+        public ActionResult Delete(int categoryId)
         {
             var category = _categoryService.Get(d => d.Id == categoryId && d.IsActive);
             if (category is not null)
             {
                 category.IsActive = false;
                 _categoryService.Update(category);
-                return Ok(category);
+                return NoContent();
             }
             return BadRequest("Category not found");
         }
 
-        [HttpPut("UpdateCategory")]
-        public ActionResult UpdateCategory(Category category)
+        [HttpPut("Update")]
+        public ActionResult Update(Category category)
         {
             var updateCategory = _categoryService.Get(d => d.Id == category.Id && d.IsActive);
             if (updateCategory is not null)
@@ -62,7 +62,7 @@ namespace E_vent.API.Controllers
                 if (updateCategory is null)
                 {
                     _categoryService.Update(category);
-                    return Ok();
+                    return Ok(category);
                 }
                 return BadRequest("Category name already exist!");
             }

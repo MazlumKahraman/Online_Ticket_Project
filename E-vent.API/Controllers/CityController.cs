@@ -17,44 +17,44 @@ namespace E_vent.API.Controllers
             _cityService = new CityManager(new CityDal());
         }
 
-        [HttpGet("GetAllCities")]
-        public List<City> GetAllCities()
+        [HttpGet("GetAll")]
+        public List<City> GetAll()
         {
             return _cityService.GetAll(c => c.IsActive);
         }
 
-        [HttpGet("GetCity")]
-        public City GetCity(int cityId)
+        [HttpGet("Get")]
+        public City Get(int cityId)
         {
             return _cityService.Get(c => c.Id == cityId && c.IsActive);
         }
 
-        [HttpPost("AddCity")]
-        public ActionResult AddCity([FromBody] City city)
+        [HttpPost("Add")]
+        public ActionResult Add([FromBody] City city)
         {
             if (_cityService.Get(c => c.Name.Equals(city.Name) && c.IsActive) is null)
             {
                 _cityService.Add(city);
-                return Ok();
+                return Ok(city);
             }
             return BadRequest("City name already exist, please enter another city name");
         }
 
-        [HttpPut("DeleteCity")]
-        public ActionResult DeleteCity(int cityId)
+        [HttpPut("Delete")]
+        public ActionResult Delete(int cityId)
         {
             var city = _cityService.Get(d => d.Id == cityId && d.IsActive);
             if (city is not null)
             {
                 city.IsActive = false;
                 _cityService.Update(city);
-                return Ok(city);
+                return NoContent();
             }
             return BadRequest("City not found");
         }
 
-        [HttpPut("UpdateCity")]
-        public ActionResult UpdateCity(City city)
+        [HttpPut("Update")]
+        public ActionResult Update(City city)
         {
             var updateCity = _cityService.Get(d => d.Id == city.Id && d.IsActive);
             if (updateCity is not null)
