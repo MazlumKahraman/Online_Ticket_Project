@@ -1,6 +1,5 @@
-﻿using E_vent.Business.Abstract;
-using E_vent.Business.Concrete;
-using E_vent.DataAccess.Concrete;
+﻿using E_vent.API.Helpers.Attributes;
+using E_vent.Business.Abstract;
 using E_vent.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,12 +7,14 @@ namespace E_vent.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiKey]
     public class CategoryController : ControllerBase
     {
         private ICategoryService _categoryService;
-        public CategoryController()
+
+        public CategoryController(ICategoryService categoryService)
         {
-            _categoryService = new CategoryManager(new CategoryDal());
+            _categoryService = categoryService;
         }
 
         [HttpGet("GetAll")]
@@ -22,10 +23,10 @@ namespace E_vent.API.Controllers
             return _categoryService.GetAll(c => c.IsActive);
         }
 
-        [HttpGet("Get")]
-        public Category Get(int categoryId)
+        [HttpGet("Get/{id}")]
+        public Category Get(int id)
         {
-            return _categoryService.Get(c => c.Id == categoryId && c.IsActive);
+            return _categoryService.Get(c => c.Id == id && c.IsActive);
         }
 
         [HttpPost("Add")]
@@ -39,10 +40,10 @@ namespace E_vent.API.Controllers
             return BadRequest("Category name already exist, please enter another category name");
         }
 
-        [HttpPut("Delete")]
-        public ActionResult Delete(int categoryId)
+        [HttpPut("Delete/{id}")]
+        public ActionResult Delete(int id)
         {
-            var category = _categoryService.Get(d => d.Id == categoryId && d.IsActive);
+            var category = _categoryService.Get(d => d.Id == id && d.IsActive);
             if (category is not null)
             {
                 category.IsActive = false;

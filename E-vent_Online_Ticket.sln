@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-vent.Business", "E-vent.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-vent.DataAccess", "E-vent.DataAccess\E-vent.DataAccess.csproj", "{0F88FD45-AE49-45B1-9822-FB10F750624F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-vent.API", "E-vent.API\E-vent.API.csproj", "{AE1ACB9D-7B2D-4FBB-A5CE-61E027898B81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-vent.API", "E-vent.API\E-vent.API.csproj", "{AE1ACB9D-7B2D-4FBB-A5CE-61E027898B81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-vent.WebUI", "E-vent.WebUI\E-vent.WebUI.csproj", "{C802A33F-8B20-4F34-8225-14D48D6DAF28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{AE1ACB9D-7B2D-4FBB-A5CE-61E027898B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE1ACB9D-7B2D-4FBB-A5CE-61E027898B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE1ACB9D-7B2D-4FBB-A5CE-61E027898B81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C802A33F-8B20-4F34-8225-14D48D6DAF28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C802A33F-8B20-4F34-8225-14D48D6DAF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C802A33F-8B20-4F34-8225-14D48D6DAF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C802A33F-8B20-4F34-8225-14D48D6DAF28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

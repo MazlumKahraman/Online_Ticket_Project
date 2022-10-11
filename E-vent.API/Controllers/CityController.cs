@@ -1,6 +1,5 @@
-﻿using E_vent.Business.Abstract;
-using E_vent.Business.Concrete;
-using E_vent.DataAccess.Concrete;
+﻿using E_vent.API.Helpers.Attributes;
+using E_vent.Business.Abstract;
 using E_vent.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,13 +7,14 @@ namespace E_vent.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiKey]
     public class CityController : ControllerBase
     {
         private ICityService _cityService;
 
-        public CityController()
+        public CityController(ICityService cityService)
         {
-            _cityService = new CityManager(new CityDal());
+            _cityService = cityService;
         }
 
         [HttpGet("GetAll")]
@@ -23,10 +23,10 @@ namespace E_vent.API.Controllers
             return _cityService.GetAll(c => c.IsActive);
         }
 
-        [HttpGet("Get")]
-        public City Get(int cityId)
+        [HttpGet("Get/{id}")]
+        public City Get(int id)
         {
-            return _cityService.Get(c => c.Id == cityId && c.IsActive);
+            return _cityService.Get(c => c.Id == id && c.IsActive);
         }
 
         [HttpPost("Add")]
@@ -40,10 +40,10 @@ namespace E_vent.API.Controllers
             return BadRequest("City name already exist, please enter another city name");
         }
 
-        [HttpPut("Delete")]
-        public ActionResult Delete(int cityId)
+        [HttpPut("Delete/{id}")]
+        public ActionResult Delete(int id)
         {
-            var city = _cityService.Get(d => d.Id == cityId && d.IsActive);
+            var city = _cityService.Get(d => d.Id == id && d.IsActive);
             if (city is not null)
             {
                 city.IsActive = false;

@@ -1,0 +1,8 @@
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.WebUI\obj\Debug\net6.0\E-vent.WebUI.csproj.AssemblyReference.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.WebUI\obj\Debug\net6.0\E-vent.WebUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.WebUI\obj\Debug\net6.0\E-vent.WebUI.AssemblyInfoInputs.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.WebUI\obj\Debug\net6.0\E-vent.WebUI.AssemblyInfo.cs
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.WebUI\obj\Debug\net6.0\E-vent.WebUI.csproj.CoreCompileInputs.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.WebUI\obj\Debug\net6.0\E-vent.WebUI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.WebUI\obj\Debug\net6.0\E-vent.WebUI.RazorAssemblyInfo.cache
+C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.WebUI\obj\Debug\net6.0\E-vent.WebUI.RazorAssemblyInfo.cs

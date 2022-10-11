@@ -1,6 +1,5 @@
-﻿using E_vent.Business.Abstract;
-using E_vent.Business.Concrete;
-using E_vent.DataAccess.Concrete;
+﻿using E_vent.API.Helpers.Attributes;
+using E_vent.Business.Abstract;
 using E_vent.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,13 +7,14 @@ namespace E_vent.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiKey]
     public class EventTicketController : ControllerBase
     {
         private IEventTicketService _eventTicketService;
 
-        public EventTicketController()
+        public EventTicketController(IEventTicketService eventTicketService)
         {
-            _eventTicketService = new EventTicketManager(new EventTicketDal());
+            _eventTicketService = eventTicketService;
         }
 
         [HttpGet("GetAll")]
@@ -23,10 +23,10 @@ namespace E_vent.API.Controllers
             return _eventTicketService.GetAll(e => e.IsActive);
         }
 
-        [HttpGet("Get")]
-        public EventTicket Get(int eventTicketId)
+        [HttpGet("Get/{id}")]
+        public EventTicket Get(int id)
         {
-            return _eventTicketService.Get(e => e.Id == eventTicketId && e.IsActive);
+            return _eventTicketService.Get(e => e.Id == id && e.IsActive);
         }
 
         [HttpPost("Add")]
@@ -36,10 +36,10 @@ namespace E_vent.API.Controllers
                 return Ok(eventTicket);
         }
 
-        [HttpPut("Delete")]
-        public ActionResult Delete(int eventTicketId)
+        [HttpPut("Delete/{id}")]
+        public ActionResult Delete(int id)
         {
-            var eventTicket = _eventTicketService.Get(e => e.Id == eventTicketId && e.IsActive);
+            var eventTicket = _eventTicketService.Get(e => e.Id == id && e.IsActive);
             if (eventTicket is not null)
             {
                 eventTicket.IsActive = false;

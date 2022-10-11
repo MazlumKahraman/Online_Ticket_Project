@@ -1,6 +1,5 @@
-﻿using E_vent.Business.Abstract;
-using E_vent.Business.Concrete;
-using E_vent.DataAccess.Concrete;
+﻿using E_vent.API.Helpers.Attributes;
+using E_vent.Business.Abstract;
 using E_vent.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,13 +7,14 @@ namespace E_vent.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiKey]
     public class EntegratorController : ControllerBase
     {
         private IEntegratorService _entegratorService;
 
-        public EntegratorController()
+        public EntegratorController(IEntegratorService entegratorService)
         {
-            _entegratorService = new EntegratorManager(new EntegratorDal());
+            _entegratorService = entegratorService;
         }
 
         [HttpGet("GetAll")]
@@ -23,10 +23,10 @@ namespace E_vent.API.Controllers
             return _entegratorService.GetAll(e => e.IsActive);
         }
 
-        [HttpGet("Get")]
-        public Entegrator Get(int entegratorId)
+        [HttpGet("Get/{id}")]
+        public Entegrator Get(int id)
         {
-            return _entegratorService.Get(e => e.Id == entegratorId && e.IsActive);
+            return _entegratorService.Get(e => e.Id == id && e.IsActive);
         }
 
         [HttpPost("Add")]
@@ -40,10 +40,10 @@ namespace E_vent.API.Controllers
             return BadRequest("Entegrator already exist, please try again!");
         }
 
-        [HttpPut("Delete")]
-        public ActionResult Delete(int entegratorId)
+        [HttpPut("Delete/{id}")]
+        public ActionResult Delete(int id)
         {
-            var entegrator = _entegratorService.Get(e => e.Id == entegratorId && e.IsActive);
+            var entegrator = _entegratorService.Get(e => e.Id == id && e.IsActive);
             if (entegrator is not null)
             {
                 entegrator.IsActive = false;

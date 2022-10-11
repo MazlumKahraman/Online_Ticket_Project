@@ -1,6 +1,5 @@
-﻿using E_vent.Business.Abstract;
-using E_vent.Business.Concrete;
-using E_vent.DataAccess.Concrete;
+﻿using E_vent.API.Helpers.Attributes;
+using E_vent.Business.Abstract;
 using E_vent.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,13 +7,14 @@ namespace E_vent.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiKey]
     public class EventUserController : ControllerBase
     {
         private IEventUserService _eventUserService;
 
-        public EventUserController()
+        public EventUserController(IEventUserService eventUserService)
         {
-            _eventUserService = new EventUserManager(new EventUserDal());
+            _eventUserService = eventUserService;
         }
 
         [HttpGet("GetAll")]
@@ -23,10 +23,10 @@ namespace E_vent.API.Controllers
             return _eventUserService.GetAll(e => e.IsActive);
         }
 
-        [HttpGet("Get")]
-        public EventUser Get(int eventUserId)
+        [HttpGet("Get/{id}")]
+        public EventUser Get(int id)
         {
-            return _eventUserService.Get(e => e.Id == eventUserId && e.IsActive);
+            return _eventUserService.Get(e => e.Id == id && e.IsActive);
         }
 
         [HttpPost("Add")]
@@ -36,10 +36,10 @@ namespace E_vent.API.Controllers
             return Ok(eventUser);
         }
 
-        [HttpPut("Delete")]
-        public ActionResult Delete(int eventUserId)
+        [HttpPut("Delete/{id}")]
+        public ActionResult Delete(int id)
         {
-            var eventUser = _eventUserService.Get(e => e.Id == eventUserId && e.IsActive);
+            var eventUser = _eventUserService.Get(e => e.Id == id && e.IsActive);
             if (eventUser is not null)
             {
                 eventUser.IsActive = false;

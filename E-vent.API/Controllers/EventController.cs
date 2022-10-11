@@ -1,6 +1,5 @@
-﻿using E_vent.Business.Abstract;
-using E_vent.Business.Concrete;
-using E_vent.DataAccess.Concrete;
+﻿using E_vent.API.Helpers.Attributes;
+using E_vent.Business.Abstract;
 using E_vent.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,25 +7,26 @@ namespace E_vent.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiKey]
     public class EventController : ControllerBase
     {
         private IEventService _eventService;
 
-        public EventController()
+        public EventController(IEventService eventService)
         {
-            _eventService = new EventManager(new EventDal());
+            _eventService = eventService;
         }
 
-        [HttpGet("GetAllEvents")]
+        [HttpGet("GetAll")]
         public List<Event> GetAll()
         {
             return _eventService.GetAll(e => e.IsActive);
         }
 
-        [HttpGet("Get")]
-        public Event Get(int eventId)
+        [HttpGet("Get/{id}")]
+        public Event Get(int id)
         {
-            return _eventService.Get(e => e.Id == eventId && e.IsActive);
+            return _eventService.Get(e => e.Id == id && e.IsActive);
         }
 
         [HttpPost("Add")]
@@ -36,10 +36,10 @@ namespace E_vent.API.Controllers
             return Ok(@event);
         }
 
-        [HttpPut("Delete")]
-        public ActionResult Delete(int eventId)
+        [HttpPut("Delete/{id}")]
+        public ActionResult Delete(int id)
         {
-            var currentEvent = _eventService.Get(e => e.Id == eventId && e.IsActive);
+            var currentEvent = _eventService.Get(e => e.Id == id && e.IsActive);
             if (currentEvent is not null)
             {
                 currentEvent.IsActive = false;

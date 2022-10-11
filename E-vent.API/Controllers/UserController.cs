@@ -1,6 +1,5 @@
-﻿using E_vent.Business.Abstract;
-using E_vent.Business.Concrete;
-using E_vent.DataAccess.Concrete;
+﻿using E_vent.API.Helpers.Attributes;
+using E_vent.Business.Abstract;
 using E_vent.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,13 +7,14 @@ namespace E_vent.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiKey]
     public class UserController : ControllerBase
     {
         private IUserService _userService;
 
-        public UserController()
+        public UserController(IUserService userService)
         {
-            _userService = new UserManager(new UserDal());
+            _userService = userService;
         }
 
         [HttpGet("GetAll")]
@@ -23,10 +23,10 @@ namespace E_vent.API.Controllers
             return _userService.GetAll(u => u.IsActive);
         }
 
-        [HttpGet("Get")]
-        public User Get(int userId)
+        [HttpGet("Get/{id}")]
+        public User Get(int id)
         {
-            return _userService.Get(u => u.Id == userId && u.IsActive);
+            return _userService.Get(u => u.Id == id && u.IsActive);
         }
 
         [HttpPost("Add")]
@@ -40,10 +40,10 @@ namespace E_vent.API.Controllers
             return BadRequest("Mail adress already exist");
         }
 
-        [HttpPut("Delete")]
-        public ActionResult Delete(int userId)
+        [HttpPut("Delete/{id}")]
+        public ActionResult Delete(int id)
         {
-            var user = _userService.Get(u => u.Id == userId && u.IsActive);
+            var user = _userService.Get(u => u.Id == id && u.IsActive);
             if (user is not null)
             {
                 user.IsActive = false;

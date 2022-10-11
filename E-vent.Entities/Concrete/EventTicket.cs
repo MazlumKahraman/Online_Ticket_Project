@@ -1,6 +1,4 @@
 ﻿using E_vent.Entities.Abstract;
-using System;
-using System.Collections.Generic;
 
 namespace E_vent.Entities.Concrete
 {
