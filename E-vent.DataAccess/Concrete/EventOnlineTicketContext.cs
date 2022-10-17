@@ -1,5 +1,8 @@
-﻿using E_vent.Entities.Concrete;
+﻿using System;
+using System.Collections.Generic;
+using E_vent.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace E_vent.DataAccess.Concrete
 {
@@ -23,13 +26,15 @@ namespace E_vent.DataAccess.Concrete
         public virtual DbSet<Status> Statuses { get; set; } = null!;
         public virtual DbSet<Ticket> Tickets { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
-
+        public virtual DbSet<UserDetail> UserDetails { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>(entity =>
             {
-                entity.Property(e => e.Name).HasMaxLength(50);
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .HasDefaultValueSql("(N'default')");
             });
 
             modelBuilder.Entity<City>(entity =>
@@ -147,17 +152,30 @@ namespace E_vent.DataAccess.Concrete
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.FirstName).HasMaxLength(50);
-
-                entity.Property(e => e.LastName).HasMaxLength(50);
-
                 entity.Property(e => e.MailAdress).HasMaxLength(50);
 
-                entity.Property(e => e.MiddleName).HasMaxLength(50);
-
                 entity.Property(e => e.Password).HasMaxLength(30);
+
+                entity.HasOne(d => d.Detail)
+                    .WithMany(p => p.Users)
+                    .HasForeignKey(d => d.DetailId)
+                    .HasConstraintName("FK_Users_UserDetails");
             });
 
+            modelBuilder.Entity<UserDetail>(entity =>
+            {
+                entity.HasKey(e => e.DetailId);
+
+                entity.Property(e => e.FirstName).HasMaxLength(50);
+
+                entity.Property(e => e.LastName)
+                    .HasMaxLength(10)
+                    .IsFixedLength();
+
+                entity.Property(e => e.MiddleName)
+                    .HasMaxLength(50)
+                    .HasColumnName("MiddleNAme");
+            });
             OnModelCreatingPartial(modelBuilder);
         }
 

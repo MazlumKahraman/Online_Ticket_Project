@@ -7,7 +7,7 @@ namespace E_vent.API.Helpers.Extensions
 {
     public static class ServiceExtension
     {
-        public static void ConfigureServices(this IServiceCollection services)
+        public static IServiceCollection ConfigureServices(this IServiceCollection services)
         {
             services.AddScoped<ICategoryDal, CategoryDal>();
             services.AddScoped<ICategoryService, CategoryManager>();
@@ -25,6 +25,7 @@ namespace E_vent.API.Helpers.Extensions
             services.AddScoped<ITicketService, TicketManager>();
             services.AddScoped<IUserDal, UserDal>();
             services.AddScoped<IUserService, UserManager>();
+            return services;
         }
     }
 }

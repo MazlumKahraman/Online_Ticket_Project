@@ -1,4 +1,6 @@
-﻿namespace E_vent.WebUI.ViewModels
+﻿using System.Text.Json.Serialization;
+
+namespace E_vent.WebUI.ViewModels
 {
     public class EntegratorViewModel
     {
@@ -10,6 +12,7 @@
         public string SecretKey { get; set; } 
         public bool IsActive { get; set; }
 
-        public  ICollection<EventTicketViewModel> EventTickets { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public  List<EventTicketViewModel> EventTickets { get; set; }
     }
 }

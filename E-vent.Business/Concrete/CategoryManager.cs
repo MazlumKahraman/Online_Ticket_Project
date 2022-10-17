@@ -1,5 +1,6 @@
 ﻿using E_vent.Business.Abstract;
 using E_vent.DataAccess.Abstract;
+using E_vent.DataAccess.Concrete;
 using E_vent.Entities.Concrete;
 using System.Linq.Expressions;
 
@@ -34,9 +35,18 @@ namespace E_vent.Business.Concrete
             return _categoryDal.Get(filter);        
         }
 
+        public Category Get(Expression<Func<Category, bool>> filter, bool navigate = false)
+        {
+            return _categoryDal.Get(filter, navigate);
+        }
+
         public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)
         {
             return _categoryDal.GetAll(filter);
+        }
+        public List<Category> GetAll(Expression<Func<Category, bool>> filter = null, bool navigate = false)
+        {
+            return _categoryDal.GetAll(filter, navigate);
         }
 
         public void Update(Category category)

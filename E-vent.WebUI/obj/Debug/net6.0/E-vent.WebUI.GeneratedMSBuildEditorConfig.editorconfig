@@ -15,24 +15,108 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\cyber\OneDrive\Masaüstü\Entertech\E-vent_Online_Ticket\E-vent.WebUI
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Event/LoadEvents.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcTG9hZEV2ZW50cy5jc2h0bWw=
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Admin/Categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2F0ZWdvcmllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Admin/Cities.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2l0aWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Admin/Events.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRXZlbnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Admin/UpdateCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Admin/UpdateCity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlQ2l0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Admin/UpdateEvent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlRXZlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Admin/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Entegrator/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50ZWdyYXRvclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Login/NewPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTmV3UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Login/PasswordReset.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUGFzc3dvcmRSZXNldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Shared/_UserLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/SignUp/Entegrator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnblVwXEVudGVncmF0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/SignUp/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnblVwXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/User/AddEvent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZGRFdmVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/User/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/User/EventDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFdmVudERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/User/JoinedEvents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxKb2luZWRFdmVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/User/MyEvents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxNeUV2ZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/User/NextJoinEvents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxOZXh0Sm9pbkV2ZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/User/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/User/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWduVXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/cyber/OneDrive/Masaüstü/Entertech/E-vent_Online_Ticket/E-vent.WebUI/Views/_ViewImports.cshtml]

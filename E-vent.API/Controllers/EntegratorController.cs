@@ -28,6 +28,11 @@ namespace E_vent.API.Controllers
         {
             return _entegratorService.Get(e => e.Id == id && e.IsActive);
         }
+        [HttpGet("Get/{email}/{password}")]
+        public Entegrator Get(string email, string password)
+        {
+            return _entegratorService.Get(e => e.MailAdress.Equals(email) && e.Password.Equals(password)&& e.IsActive);
+        }
 
         [HttpPost("Add")]
         public ActionResult Add([FromBody] Entegrator entegrator)

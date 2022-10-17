@@ -1,4 +1,5 @@
 ﻿using System.Reflection.PortableExecutable;
+using System.Text.Json.Serialization;
 
 namespace E_vent.WebUI.ViewModels
 {
@@ -8,6 +9,7 @@ namespace E_vent.WebUI.ViewModels
         public string Name { get; set; }
         public bool IsActive { get; set; }
 
-        public virtual ICollection<EventViewModel> Events { get; set; }
+        [JsonIgnore(Condition =JsonIgnoreCondition.WhenWritingNull)]
+        public List<EventViewModel> Events { get; set; }
     }
 }

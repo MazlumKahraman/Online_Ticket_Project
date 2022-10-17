@@ -18,21 +18,32 @@ namespace E_vent.API.Controllers
         }
 
         [HttpGet("GetAll")]
-        public List<User> GetAll()
+        public List<User> GetAll(int? navigate)
         {
-            return _userService.GetAll(u => u.IsActive);
+            return (navigate is null)
+                ? _userService.GetAll(u => u.IsActive == true && u.DetailId!=null)
+                : _userService.GetAll(u => u.IsActive == true && u.DetailId != null, true);
         }
 
+
         [HttpGet("Get/{id}")]
-        public User Get(int id)
+        public User Get(int id, int? navigate)
         {
-            return _userService.Get(u => u.Id == id && u.IsActive);
+            return (navigate is null)
+                ? _userService.Get(u => u.Id == id && u.IsActive == true)
+                : _userService.Get(u => u.Id == id && u.IsActive == true, true);
+        }
+
+        [HttpGet("Get/{email}/{password}")]
+        public User Get(string eMail,string password)
+        {
+            return _userService.Get(u => u.MailAdress.Equals(eMail) && u.Password.Equals(password) && u.IsActive == true);
         }
 
         [HttpPost("Add")]
         public ActionResult Add([FromBody] User user)
         {
-            if (_userService.Get(u => u.MailAdress.Equals(user.MailAdress) && u.IsActive) is null)
+            if (_userService.Get(u => u.MailAdress.Equals(user.MailAdress) && u.IsActive == true) is null)
             {
                 _userService.Add(user);
                 return Ok(user);
@@ -40,10 +51,10 @@ namespace E_vent.API.Controllers
             return BadRequest("Mail adress already exist");
         }
 
-        [HttpPut("Delete/{id}")]
+        [HttpPatch("Delete/{id}")]
         public ActionResult Delete(int id)
         {
-            var user = _userService.Get(u => u.Id == id && u.IsActive);
+            var user = _userService.Get(u => u.Id == id && u.IsActive == true);
             if (user is not null)
             {
                 user.IsActive = false;
@@ -56,11 +67,26 @@ namespace E_vent.API.Controllers
         [HttpPut("Update")]
         public ActionResult Update(User user)
         {
-            var updateUser = _userService.Get(u => u.Id == user.Id && u.IsActive);
+            var updateUser = _userService.Get(u => u.Id == user.Id && u.IsActive == true,true);
             if (updateUser is not null)
             {
-                _userService.Update(user);
-                return Ok(user);
+                updateUser.Detail.FirstName = user.Detail.FirstName;
+                updateUser.Detail.LastName = user.Detail.LastName;
+                updateUser.Detail.MiddleName = user.Detail.MiddleName;
+                _userService.Update(updateUser);
+                return Ok(updateUser);
+            }
+            return BadRequest("User not found");
+        }
+        [HttpPatch("ChangePassword/{id}/{password}")]
+        public ActionResult ChangePassword(int id, string password)
+        {
+            var updateUser = _userService.Get(u => u.Id == id && u.IsActive == true, true);
+            if (updateUser is not null)
+            {
+                updateUser.Password = password;
+                _userService.Update(updateUser);
+                return Ok(updateUser);
             }
             return BadRequest("User not found");
         }

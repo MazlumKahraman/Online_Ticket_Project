@@ -23,6 +23,12 @@ namespace E_vent.API.Controllers
             return _eventTicketService.GetAll(e => e.IsActive);
         }
 
+        [HttpGet("GetAll/{id}")]
+        public List<EventTicket> GetAll(int id)
+        {
+            return _eventTicketService.GetAll(e => e.IsActive && e.EventId==id);
+        }
+
         [HttpGet("Get/{id}")]
         public EventTicket Get(int id)
         {
@@ -36,7 +42,7 @@ namespace E_vent.API.Controllers
                 return Ok(eventTicket);
         }
 
-        [HttpPut("Delete/{id}")]
+        [HttpPatch("Delete/{id}")]
         public ActionResult Delete(int id)
         {
             var eventTicket = _eventTicketService.Get(e => e.Id == id && e.IsActive);

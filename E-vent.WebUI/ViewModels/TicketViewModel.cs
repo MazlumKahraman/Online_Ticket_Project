@@ -1,4 +1,6 @@
-﻿namespace E_vent.WebUI.ViewModels
+﻿using System.Text.Json.Serialization;
+
+namespace E_vent.WebUI.ViewModels
 {
     public class TicketViewModel
     {
@@ -8,7 +10,11 @@
         public int EventTicketId { get; set; }
         public bool IsActive { get; set; }
 
+
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public EventTicketViewModel EventTicket { get; set; }
+
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public UserViewModel User { get; set; }
     }
 }

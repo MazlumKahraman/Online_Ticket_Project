@@ -1,0 +1,45 @@
+﻿@using E_vent.WebUI.ViewModels
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+@model UserViewModel
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">Private info</h5>
+    </div>
+    <div class="card-body">
+        <form onsubmit="return confirm('Do you really want to submit the form?');" method="post" action="@Url.Action("Profile","User")">
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label class="form-label" for="inputFirstName">First name</label>
+                    <input type="text" class="form-control" name="FirstName" value="@Model.Detail.FirstName">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label" for="inputFirstName">Middle name</label>
+                    <input type="text" class="form-control" name="MiddleName" value="@Model.Detail.MiddleName">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label" for="inputLastName">Last name</label>
+                    <input type="text" class="form-control" name="LastName" value="@Model.Detail.LastName">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="inputEmail">Email</label>
+                <input type="email" class="form-control" name="MailAdress" value="@Model.MailAdress" readonly>
+            </div>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+             <a href="@Url.Action("ChangePassword","User")" class="btn btn-primary">Change Password</a>
+        </form>
+
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        var msg = "@ViewBag.Success";
+        if (msg.toLowerCase()=="true"){
+            alert("Password changed successfully.");
+        }
+    </script>
+}

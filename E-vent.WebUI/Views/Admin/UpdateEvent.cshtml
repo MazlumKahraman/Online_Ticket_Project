@@ -1,0 +1,91 @@
+﻿@using E_vent.WebUI.ViewModels
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model EventViewModel
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">EVENT</h5>
+    </div>
+    <div class="card-body">
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-2 text-sm-end">Event Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Name" value="@Model.Name" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-2 text-sm-end">Category</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Name" value="@Model.Category.Name" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-2 text-sm-end">City</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Name" value="@Model.City.Name" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-2 text-sm-end">Starting Time</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Name" value="@Model.BegginigTime" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-2 text-sm-end">Last Attendance</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Name" value="@Model.LastAttendance" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-2 text-sm-end">Description</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Name" value="@Model.Description" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-2 text-sm-end">Quato</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Name" value="@Model.Quato" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-2 text-sm-end">Price</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Name" value="@Model.Price" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-2 text-sm-end">Adress</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Name" value="@Model.Adress" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-2 text-sm-end">Organizator</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Name" value="@($"{Model.User.Detail.FirstName} {Model.User.Detail.LastName}")" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-2 text-sm-end">Status</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Name" value="@Model.StatusId" readonly>
+            </div>
+        </div>
+
+        @if (Model.StatusId == 1)
+        {
+            <div class="mb-3 row">
+                <div class="col-sm-10 ms-sm-auto">
+                    <a href="@Url.Action("ApproveEvent","Admin",new {eventId=Model.Id})" class="btn btn-success">Approve</a>
+                    <a href="@Url.Action("DeclineEvent","Admin", new {eventId=Model.Id})" class="btn btn-danger">Decline</a>
+
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

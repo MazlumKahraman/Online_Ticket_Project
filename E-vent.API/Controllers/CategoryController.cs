@@ -18,15 +18,20 @@ namespace E_vent.API.Controllers
         }
 
         [HttpGet("GetAll")]
-        public List<Category> GetAll()
+        public List<Category> GetAll(int? navigate)
         {
-            return _categoryService.GetAll(c => c.IsActive);
+            return (navigate is null)
+                ? _categoryService.GetAll(c => c.IsActive)
+                : _categoryService.GetAll(c => c.IsActive, true);
         }
 
         [HttpGet("Get/{id}")]
-        public Category Get(int id)
+        public Category Get(int id, int? navigate)
         {
-            return _categoryService.Get(c => c.Id == id && c.IsActive);
+            return (navigate is null)
+                ? _categoryService.Get(c => c.Id == id && c.IsActive)
+                : _categoryService.Get(c => c.Id == id && c.IsActive, true);
+
         }
 
         [HttpPost("Add")]
@@ -34,13 +39,14 @@ namespace E_vent.API.Controllers
         {
             if (_categoryService.Get(c => c.Name.Equals(category.Name) && c.IsActive) is null)
             {
+                category.IsActive = true;
                 _categoryService.Add(category);
                 return Ok(category);
             }
             return BadRequest("Category name already exist, please enter another category name");
         }
 
-        [HttpPut("Delete/{id}")]
+        [HttpPatch("Delete/{id}")]
         public ActionResult Delete(int id)
         {
             var category = _categoryService.Get(d => d.Id == id && d.IsActive);
@@ -54,20 +60,21 @@ namespace E_vent.API.Controllers
         }
 
         [HttpPut("Update")]
-        public ActionResult Update(Category category)
+        public ActionResult Update([FromBody] Category category)
         {
-            var updateCategory = _categoryService.Get(d => d.Id == category.Id && d.IsActive);
-            if (updateCategory is not null)
+            var updateCategory = _categoryService.Get(c => c.Name.Equals(category.Name));
+            if (updateCategory is null)
             {
-                updateCategory=_categoryService.Get(c=>c.Name.Equals(category.Name));
-                if (updateCategory is null)
+                updateCategory = _categoryService.Get(d => d.Id == category.Id && d.IsActive);
+                if (updateCategory is not null)
                 {
-                    _categoryService.Update(category);
-                    return Ok(category);
+                    updateCategory.Name = category.Name;
+                    _categoryService.Update(updateCategory);
+                    return Ok(updateCategory);
                 }
-                return BadRequest("Category name already exist!");
+                return BadRequest("Category not found.");
             }
-            return BadRequest("Category not found");
+            return BadRequest("Category name already exist!");
         }
     }
 }

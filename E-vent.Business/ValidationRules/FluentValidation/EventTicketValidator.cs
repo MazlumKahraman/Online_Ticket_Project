@@ -12,7 +12,6 @@ namespace E_vent.Business.ValidationRules.FluentValidation
     {
         public EventTicketValidator()
         {
-            RuleFor(e => e.Quato).NotEmpty();
         }
     }
 }

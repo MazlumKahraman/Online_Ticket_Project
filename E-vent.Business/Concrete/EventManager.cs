@@ -36,9 +36,18 @@ namespace E_vent.Business.Concrete
             return _eventDal.Get(filter);
         }
 
+        public Event Get(Expression<Func<Event, bool>> filter , bool navigate = false)
+        {
+            return _eventDal.Get(filter,navigate);
+        }
+
         public List<Event> GetAll(Expression<Func<Event, bool>> filter = null)
         {
             return _eventDal.GetAll(filter);
+        }
+        public List<Event> GetAll(Expression<Func<Event, bool>> filter = null, bool navigate=false)
+        {
+            return _eventDal.GetAll(filter,navigate);
         }
 
         public void Update(Event @event)

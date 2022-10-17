@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using E_vent.WebUI.ViewModels
+@model List<CategoryViewModel>
+<h1>Categories</h1>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+    Add Category
+</button>
+<div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" action="@Url.Action("AddCategory","Admin")">
+                <div class="modal-body m-3">
+                    <input type="text" placeholder="Category Name" name="Name" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="datatables-reponsive_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width:10%;">Id</th>
+                        <th style="width:80%">Category Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].Id</td>
+                            <td>@Model[i].Name</td>
+                            <td>
+                                <a href="@Url.Action("UpdateCategory","Admin",new {categoryId=Model[i].Id})">
+                                    <i class="align-middle" style="width:20px; height:20px; color:blue;" data-feather="edit"></i>
+                                </a>
+
+                                <a>
+                                    <i class="align-middle" style="width:20px; height:20px; color:red;" data-feather="trash" data-bs-toggle="modal" data-bs-target="#deleteCategoryModal" data-bs-id="@Model[i].Id"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteCategoryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Category!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body m-3">
+                <p class="mb-0">
+                    Are you sure to delete category?
+                    <br>
+                    Changes will apply all effected events!
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <a href="#" class="btn btn-danger" id="categoryId">
+                    Delete
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        var deleteCategoryModal = document.getElementById('deleteCategoryModal')
+
+        deleteCategoryModal.addEventListener('show.bs.modal', function(event){
+            var related = event.relatedTarget
+            var id = related.getAttribute('data-bs-id')
+            var modalHref = deleteCategoryModal.querySelector('.modal-footer a')
+            modalHref.setAttribute('href', '/admin/deletecategory?CategoryId=' + id)
+        })
+    </script>
+}

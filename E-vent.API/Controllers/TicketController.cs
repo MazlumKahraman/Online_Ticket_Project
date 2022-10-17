@@ -36,7 +36,7 @@ namespace E_vent.API.Controllers
             return Ok(ticket);
         }
 
-        [HttpPut("Delete/{id}")]
+        [HttpPatch("Delete/{id}")]
         public ActionResult Delete(int id)
         {
             var ticket = _ticketService.Get(t => t.Id == id && t.IsActive);

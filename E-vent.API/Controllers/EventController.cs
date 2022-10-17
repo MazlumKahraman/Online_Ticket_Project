@@ -18,15 +18,26 @@ namespace E_vent.API.Controllers
         }
 
         [HttpGet("GetAll")]
-        public List<Event> GetAll()
+        public List<Event> GetAll(int? navigate)
         {
-            return _eventService.GetAll(e => e.IsActive);
+            return (navigate is null)
+                ? _eventService.GetAll(e => e.IsActive == true)
+                : _eventService.GetAll(e => e.IsActive == true, true);
+        }
+        [HttpGet("GetAll/{id}")]//apihelper.get<List<EventViewDto>>($"event/getall/{currentuser.id}?navigate=1")
+        public List<Event> GetAll(int id, int? navigate)
+        {
+            return (navigate is null)
+                ? _eventService.GetAll(e => e.IsActive == true && e.UserId == id)
+                : _eventService.GetAll(e => e.IsActive == true && e.UserId == id, true);
         }
 
         [HttpGet("Get/{id}")]
-        public Event Get(int id)
+        public Event Get(int id, int? navigate)
         {
-            return _eventService.Get(e => e.Id == id && e.IsActive);
+            return (navigate is null)
+                ? _eventService.Get(e => e.Id == id && e.IsActive == true)
+                : _eventService.Get(e => e.Id == id && e.IsActive == true, true) ;
         }
 
         [HttpPost("Add")]
@@ -36,15 +47,15 @@ namespace E_vent.API.Controllers
             return Ok(@event);
         }
 
-        [HttpPut("Delete/{id}")]
+        [HttpPatch("Delete/{id}")]
         public ActionResult Delete(int id)
         {
-            var currentEvent = _eventService.Get(e => e.Id == id && e.IsActive);
+            var currentEvent = _eventService.Get(e => e.Id == id && e.IsActive == true);
             if (currentEvent is not null)
             {
                 currentEvent.IsActive = false;
                 _eventService.Update(currentEvent);
-                return NoContent(); 
+                return NoContent();
             }
             return BadRequest("Event not found");
         }
@@ -52,13 +63,40 @@ namespace E_vent.API.Controllers
         [HttpPut("Update")]
         public ActionResult Update(Event @event)
         {
-            var updateEvent = _eventService.Get(e => e.Id == @event.Id && e.IsActive);
+            var updateEvent = _eventService.Get(e => e.Id == @event.Id && e.IsActive == true);
             if (updateEvent is not null)
             {
-                _eventService.Update(@event);
-                return Ok(@event);
+                updateEvent.Quato = @event.Quato;
+                updateEvent.Adress = @event.Adress;
+                _eventService.Update(updateEvent);
+                return Ok(updateEvent);
             }
-            return BadRequest("City not found");
+            return BadRequest("Event not found");
+        }
+
+        [HttpPatch("Approve/{id}")]
+        public ActionResult Approve(int id)
+        {
+            var updateEvent = _eventService.Get(e => e.Id == id && e.IsActive == true);
+            if (updateEvent is not null)
+            {
+                updateEvent.StatusId = 2;
+                _eventService.Update(updateEvent);
+                return Ok(updateEvent);
+            }
+            return BadRequest("Event not found");
+        }
+        [HttpPatch("Decline/{id}")]
+        public ActionResult Decline(int id)
+        {
+            var updateEvent = _eventService.Get(e => e.Id == id && e.IsActive == true);
+            if (updateEvent is not null)
+            {
+                updateEvent.StatusId = 3;
+                _eventService.Update(updateEvent);
+                return Ok(updateEvent);
+            }
+            return BadRequest("Event not found");
         }
     }
 }

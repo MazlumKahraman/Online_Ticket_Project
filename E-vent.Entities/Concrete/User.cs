@@ -1,4 +1,6 @@
 ﻿using E_vent.Entities.Abstract;
+using System;
+using System.Collections.Generic;
 
 namespace E_vent.Entities.Concrete
 {
@@ -12,15 +14,14 @@ namespace E_vent.Entities.Concrete
         }
 
         public int Id { get; set; }
-        public string FirstName { get; set; } = null!;
-        public string? MiddleName { get; set; }
-        public string LastName { get; set; } = null!;
-        public string MailAdress { get; set; } = null!;
-        public string Password { get; set; } = null!;
-        public bool IsActive { get; set; }
+        public string? MailAdress { get; set; } = null!;
+        public string? Password { get; set; } = null!;
+        public int? DetailId { get; set; }
+        public bool? IsActive { get; set; }
 
-        public virtual ICollection<EventUser> EventUsers { get; set; }
-        public virtual ICollection<Event> Events { get; set; }
-        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual UserDetail? Detail { get; set; }
+        public virtual ICollection<EventUser>? EventUsers { get; set; }
+        public virtual ICollection<Event>? Events { get; set; }
+        public virtual ICollection<Ticket>? Tickets { get; set; }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using E_vent.Entities.Abstract;
+using System;
+using System.Collections.Generic;
 
 namespace E_vent.Entities.Concrete
 {
@@ -10,7 +12,6 @@ namespace E_vent.Entities.Concrete
         }
 
         public int Id { get; set; }
-        public int Quato { get; set; }
         public int EventId { get; set; }
         public int EntegratorId { get; set; }
         public bool IsActive { get; set; }

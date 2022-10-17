@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\E-vent.Business\E-vent.Business.csproj" />
     <ProjectReference Include="..\E-vent.DataAccess\E-vent.DataAccess.csproj" />
     <ProjectReference Include="..\E-vent.Entities\E-vent.Entities.csproj" />

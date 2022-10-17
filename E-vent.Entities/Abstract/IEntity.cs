@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_vent.Entities.Abstract
+﻿namespace E_vent.Entities.Abstract
 {
-    public interface IEntity
+    public interface IEntity // bu interface sadece repositorybase de entity classlarının
+                             // implemente etme zorunluluğu olsun diye oluşturuldu
     {
     }
 }

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using E_vent.WebUI.ViewModels
+@model List<UserViewModel>
+
+<div id="datatables-reponsive_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width:10%;">Id</th>
+                        <th style="width:10%">First Name</th>
+                        <th style="width:10%">Middle Name</th>
+                        <th style="width:10%">Last Name</th>
+                        <th>Mail Adress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].Id</td>
+                            <td>@Model[i].Detail.FirstName</td>
+                            <td>@Model[i].Detail.MiddleName</td>
+                            <td>@Model[i].Detail.LastName</td>
+                            <td>@Model[i].MailAdress</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using E_vent.WebUI.ViewModels
+@model List<EventViewModel>
+
+<div id="datatables-reponsive_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width:20%;">Event Name</th>
+                        <th style="width:15%">Category</th>
+                        <th style="width:15%">City</th>
+                        <th style="width:15%">Starting Time</th>
+                        <th style="width:10%">Status</th>
+
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].Name</td>
+                            <td>@Model[i].Category.Name</td>
+                            <td>@Model[i].City.Name</td>
+                            <td>@Model[i].BegginigTime</td>
+                            @if (Model[i].StatusId == 1)
+                            {
+                                <td><span class="badge bg-warning">Waiting</span></td>
+                            }
+                            else if (Model[i].StatusId == 2)
+                            {
+                                <td><span class="badge bg-success">Approved</span></td>
+                            }
+                            else if(Model[i].StatusId == 3)
+                            {
+                                <td><span class="badge bg-danger">Declined</span></td>
+                            }
+                                
+                            <td>
+
+                                <a href="@Url.Action("UpdateEvent","Admin",new {eventId=Model[i].Id})">
+                                    <i class="align-middle" style="width:20px; height:20px; color:blue;" data-feather="edit"></i>
+                                </a>
+
+
+                                <a>
+                                    <i class="align-middle" style="width:20px; height:20px; color:red;" data-feather="trash" data-bs-toggle="modal" data-bs-target="#centeredModalDanger"></i>
+                                    <div class="modal fade" id="centeredModalDanger" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Delete Event!</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body m-3">
+                                                    <p class="mb-0">
+                                                        Are you sure to delete this event?
+                                                        <br>
+                                                        Changes will not be undone
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                    <a href="@Url.Action("DeleteEvent","Admin",new {eventId=Model[i].Id})">
+                                                        <button type="button" class="btn btn-danger">Delete</button>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

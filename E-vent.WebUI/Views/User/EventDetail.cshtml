@@ -1,0 +1,141 @@
+﻿@using E_vent.WebUI.ViewModels
+
+@{
+    Layout = "_UserLayout";
+    List<EntegratorViewModel> entegrators = ViewBag.Entegrators;
+}
+@model EventViewModel
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Event Details</h5>
+    </div>
+    <div class="card-body">
+        <form method="post" action="@Url.Action("UpdateEvent","User",new {Id=Model.Id})">
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2 text-sm-end">Event Name</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" readonly value="@Model.Name">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2 text-sm-end">Category</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly value="@Model.Category.Name">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2 text-sm-end">City</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly value="@Model.City.Name">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2 text-sm-end">Address</label>
+                @if (ViewBag.Changeable == true)
+                {
+                    <div class="col-sm-10">
+                        <textarea class="form-control" name="Adress" rows="3">@Model.Adress</textarea>
+                    </div>
+                }
+                else{
+                    <div class="col-sm-10">
+                        <textarea class="form-control" readonly rows="3">@Model.Adress</textarea>
+                    </div>
+                }
+                
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2 text-sm-end">Description</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" readonly rows="3">@Model.Description</textarea>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2 text-sm-end">Event Date</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly value="@Model.BegginigTime.ToShortDateString()">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2 text-sm-end">Last Attendance Date</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly value="@Model.LastAttendance.ToShortDateString()">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2 text-sm-end">Quato</label>
+                @if (ViewBag.Changeable == true)
+                {
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="Quato" value="@Model.Quato">
+                    </div>
+                }
+                else{
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" readonly value="@Model.Quato">
+                    </div>
+                }
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2 text-sm-end">Organizator</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly value="@($"{Model.User.Detail.FirstName} {Model.User.Detail.LastName}")">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-sm-10 ms-sm-auto">
+                    @if (ViewBag.Changeable == true){
+                        if(Model.WithTicket==true){
+                            if(entegrators is not null){
+                                for (int i = 0; i < entegrators.Count; i++)
+                                {
+                                    <a href="@entegrators[i].DomainName" target="_blank" class="btn btn-primary" style="color:white!important">@entegrators[i].Name</a>
+                                }
+                            <br />
+                            <br />
+                            }
+                        }
+                        <button onclick="CancelEvent(@Model.Id)" class="btn btn-danger" type="button">Cancel Event</button>
+                        <button type="submit" class="btn btn-primary">Submit Changes</button>
+
+                    }
+                    else{
+                        if (Model.WithTicket == true)
+                        {
+                            if (entegrators is not null)
+                            {
+                                for (int i = 0; i < entegrators.Count; i++)
+                                {
+                                    <a href="@entegrators[i].DomainName" target="_blank" class="btn btn-primary" style="color:white!important">@entegrators[i].Name</a>
+                                }
+                            }
+                        }
+                        else{
+                            if (ViewBag.IsAttend == true)
+                            {
+                                <a href="@Url.Action("LeaveEvent","User",new {eventId=Model.Id})" class="btn btn-danger">Leave</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("JoinEvent","User",new {eventId=Model.Id})" class="btn btn-primary">Join</a>
+
+                            }
+                        }
+                        
+                    }
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        function CancelEvent(id){
+            if (confirm('Do you really want to cancel the event?')==true){
+                window.location="/User/CancelEvent?eventId="+id;
+            }
+        }
+    </script>
+}
