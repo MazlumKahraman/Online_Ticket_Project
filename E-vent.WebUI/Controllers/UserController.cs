@@ -119,18 +119,30 @@ namespace E_vent.WebUI.Controllers
         [HttpGet]
         public IActionResult AddEvent()
         {
+            GetCategoryAndCity();
+
+            return View();
+        }
+
+        private void GetCategoryAndCity()
+        {
             var categoryApi = _apiHelper.Get<List<CategoryViewModel>>("category/getall");
             var cityApi = _apiHelper.Get<List<CityViewModel>>("city/getall");
             var categories = categoryApi.Result.Entity;
             var cities = cityApi.Result.Entity;
             ViewBag.Cities = cities;
             ViewBag.Categories = categories;
-
-            return View();
         }
+
         [HttpPost]
         public IActionResult AddEvent(EventViewModel @event)
         {
+            if (@event.BegginigTime< DateTime.Now || @event.LastAttendance < DateTime.Now)
+            {
+                ModelState.AddModelError("", "You cant add event to past time");
+                GetCategoryAndCity();
+                return View(@event);
+            }
             @event.StatusId = 1;
             @event.IsActive = true;
             @event.UserId = currentUser.Id;

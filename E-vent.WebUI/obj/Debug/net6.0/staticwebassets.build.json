@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rGIhVMNViwh8B/Hs4NchEH0pk4G76DC2MygIfYpr/pU=",
+  "Hash": "bo9ivF3pOP8BqaMQ4GfHRyzDCDCzFwLg7WxDKhu19l8=",
   "Source": "E-vent.WebUI",
   "BasePath": "_content/E-vent.WebUI",
   "Mode": "Default",
@@ -16,40 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "C:\\Users\\cyber\\OneDrive\\Masaüstü\\Entertech\\E-vent_Online_Ticket\\E-vent.WebUI\\obj\\Debug\\net6.0\\scopedcss\\bundle\\E-vent.WebUI.styles.css",
-      "SourceId": "E-vent.WebUI",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\cyber\\OneDrive\\Masaüstü\\Entertech\\E-vent_Online_Ticket\\E-vent.WebUI\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/E-vent.WebUI",
-      "RelativePath": "E-vent.WebUI.styles.css",
-      "AssetKind": "All",
-      "AssetMode": "CurrentProject",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ApplicationBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\cyber\\OneDrive\\Masaüstü\\Entertech\\E-vent_Online_Ticket\\E-vent.WebUI\\obj\\Debug\\net6.0\\scopedcss\\bundle\\E-vent.WebUI.styles.css"
-    },
-    {
-      "Identity": "C:\\Users\\cyber\\OneDrive\\Masaüstü\\Entertech\\E-vent_Online_Ticket\\E-vent.WebUI\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\E-vent.WebUI.bundle.scp.css",
-      "SourceId": "E-vent.WebUI",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\cyber\\OneDrive\\Masaüstü\\Entertech\\E-vent_Online_Ticket\\E-vent.WebUI\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/E-vent.WebUI",
-      "RelativePath": "E-vent.WebUI.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\cyber\\OneDrive\\Masaüstü\\Entertech\\E-vent_Online_Ticket\\E-vent.WebUI\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\E-vent.WebUI.bundle.scp.css"
-    },
     {
       "Identity": "C:\\Users\\cyber\\OneDrive\\Masaüstü\\Entertech\\E-vent_Online_Ticket\\E-vent.WebUI\\wwwroot\\css\\app.css",
       "SourceId": "E-vent.WebUI",

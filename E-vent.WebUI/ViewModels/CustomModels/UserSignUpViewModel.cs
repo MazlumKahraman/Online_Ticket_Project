@@ -18,7 +18,7 @@ namespace E_vent.WebUI.ViewModels.CustomModels
 
         [Required(ErrorMessage ="First name is required.")]
 		public string FirstName { get; set; }
-		public string MiddleName { get; set; }
+		public string? MiddleName { get; set; }
 
         [Required(ErrorMessage = "Last name is required.")]
         public string LastName { get; set; }

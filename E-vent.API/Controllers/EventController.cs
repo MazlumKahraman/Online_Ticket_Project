@@ -21,8 +21,8 @@ namespace E_vent.API.Controllers
         public List<Event> GetAll(int? navigate)
         {
             return (navigate is null)
-                ? _eventService.GetAll(e => e.IsActive == true)
-                : _eventService.GetAll(e => e.IsActive == true, true);
+                ? _eventService.GetAll(e => e.IsActive == true && e.BegginigTime>DateTime.Now)
+                : _eventService.GetAll(e => e.IsActive == true && e.BegginigTime > DateTime.Now, true);
         }
         [HttpGet("GetAll/{id}")]//apihelper.get<List<EventViewDto>>($"event/getall/{currentuser.id}?navigate=1")
         public List<Event> GetAll(int id, int? navigate)
@@ -36,8 +36,8 @@ namespace E_vent.API.Controllers
         public Event Get(int id, int? navigate)
         {
             return (navigate is null)
-                ? _eventService.Get(e => e.Id == id && e.IsActive == true)
-                : _eventService.Get(e => e.Id == id && e.IsActive == true, true) ;
+                ? _eventService.Get(e => e.Id == id && e.IsActive == true && e.BegginigTime > DateTime.Now)
+                : _eventService.Get(e => e.Id == id && e.IsActive == true && e.BegginigTime > DateTime.Now, true) ;
         }
 
         [HttpPost("Add")]
